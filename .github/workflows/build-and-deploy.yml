@@ -18,16 +18,16 @@ jobs:
           node-version: '12.x'
       - name: Install dependencies
         run: npm ci
-        working-directory: client
+        working-directory: class-survey
       - name: Build
         run: npm run build
-        working-directory: client
+        working-directory: class-survey
       - name: Archive build
         if: success()
         uses: actions/upload-artifact@v1
         with:
           name: dist
-          path: client/dist
+          path: class-survey/dist
   deploy:
     name: Deploy 🚀
     runs-on: ubuntu-latest
@@ -44,4 +44,4 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: dist/client
+          FOLDER: dist/class-survey
