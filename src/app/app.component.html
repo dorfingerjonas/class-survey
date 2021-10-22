@@ -12,6 +12,8 @@
   <app-chart [id]="result.question" [name]="result.question" [result]="result.result"></app-chart>
 
   <ol *ngIf="showResult">
-    <li *ngFor="let answer of result.result">{{ answer.key }}: {{ (answer.value.relative * 100).toFixed(2) }}%</li>
+    <li *ngFor="let answer of result.result">
+      {{ answer.key }}: {{ (answer.value.relative * 100).toFixed(2) }}% ({{ answer.value.absolute }})
+    </li>
   </ol>
 </div>
